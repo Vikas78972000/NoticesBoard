@@ -1,5 +1,7 @@
 import axios from "axios";
 import NoticeForm from "../../components/NoticeForm";
+const baseUrl =
+  process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000";
 
 export default function EditNotice({ notice }) {
 
@@ -21,7 +23,7 @@ export async function getServerSideProps({ params }) {
 
     const res = await axios.get(
 
-      `http://localhost:3000/api/notices/${params.id}`
+       `${baseUrl}/api/notices/${params.id}`
 
     );
 
