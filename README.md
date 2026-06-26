@@ -1,40 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# Notice Board CRUD Application
+
+A full-stack Notice Board application built using **Next.js (Pages Router)**, **Prisma**, and a **hosted MySQL database**. The application supports full CRUD (Create, Read, Update, Delete) functionality with server-side validation and responsive design.
+
+## Features
+
+* Create a new notice
+* View all notices
+* Edit existing notices
+* Delete notices with confirmation
+* Server-side validation using API routes
+* Responsive UI for mobile and desktop
+* Urgent notices displayed first with a red "Urgent" badge
+* Data stored in a hosted database using Prisma
+
+## Tech Stack
+
+* Next.js (Pages Router)
+* Prisma ORM
+* MySQL (Hosted Database)
+* Tailwind CSS
+* Axios
+* Vercel (Deployment)
+
+## Notice Fields
+
+* Title (Required)
+* Body (Required)
+* Category (Exam, Event, General)
+* Priority (Normal, Urgent)
+* Publish Date
+* Optional Image (if implemented)
+
+## API Routes
+
+| Method | Route               | Description       |
+| ------ | ------------------- | ----------------- |
+| GET    | `/api/notices`      | Fetch all notices |
+| POST   | `/api/notices`      | Create a notice   |
+| PUT    | `/api/notices/[id]` | Update a notice   |
+| DELETE | `/api/notices/[id]` | Delete a notice   |
 
 ## Getting Started
 
-First, run the development server:
+### 1. Clone the repository
+
+```bash
+git clone <your-github-repository-url>
+cd notice-board
+```
+
+### 2. Install dependencies
+
+```bash
+npm install
+```
+
+### 3. Configure Environment Variables
+
+Create a `.env` file and add:
+
+```env
+DATABASE_URL="your_database_connection_string"
+```
+
+### 4. Generate Prisma Client
+
+```bash
+npx prisma generate
+```
+
+### 5. Run Database Migrations
+
+```bash
+npx prisma migrate dev
+```
+
+### 6. Start the Development Server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open:
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+```
+http://localhost:3000
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+## Project Structure
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+```
+pages/
+ ├── api/
+ │    └── notices/
+ ├── notices/
+ ├── index.js
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+components/
+prisma/
+styles/
+```
 
-## Learn More
+## Deployment
 
-To learn more about Next.js, take a look at the following resources:
+The application is deployed on **Vercel** and uses a hosted database.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## One Thing I Would Improve With More Time
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+If I had more time, I would add:
 
-## Deploy on Vercel
+* User authentication
+* Search and filtering by category
+* Pagination for large numbers of notices
+* Image upload using Cloudinary
+* Rich text editor for notice body
+* Better loading states and toast notifications
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## AI Usage
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+AI tools (ChatGPT) were used to:
+
+* Understand the assignment requirements
+* Debug Next.js and Prisma issues
+* Improve code structure and best practices
+* Generate parts of the README documentation
+
+All application logic, testing, debugging, and final implementation were completed and verified manually.
+
+## Author
+
+**Vikas Yadav**
